@@ -12,8 +12,11 @@
 
 /// @brief
 void App::exec() {
-  modelInference_.init();
+  if (!modelInference_.init()) {
+    return;
+  }
   while (true) {
+
   }
 }
 

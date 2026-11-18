@@ -2,6 +2,10 @@
 
 //
 
+#include <memory>
+
+//
+
 #include "onnxruntime_cxx_api.h"
 
 //
@@ -9,7 +13,11 @@
 /// @brief
 class ModelInference final {
 public:
-  void init();
+  bool init();
 
 private:
+  std::unique_ptr<Ort::Session> session_;
+
+  std::unique_ptr<Ort::Value> inputTensor_;
+  std::unique_ptr<Ort::Value> outputTensor_;
 };
